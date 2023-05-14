@@ -10,7 +10,6 @@
 
 
 " SETTINGS --------------------------------------------------------------- {{{
-
 syntax on
 set regexpengine=0
 set encoding=utf8
@@ -78,20 +77,20 @@ set list lcs=tab:\|\
 " }}}
 
 " PLUGINS ---------------------------------------------------------------- {{{
+
 call plug#begin('~/.vim/plugged')
 
 	"Plug 'dense-analysis/ale'
 	Plug 'tpope/vim-fugitive'
-	Plug 'preservim/nerdtree'
+	Plug 'airblade/vim-gitgutter'	
 	Plug 'preservim/nerdcommenter'
+	Plug 'preservim/nerdtree'
 	Plug 'rbong/vim-crystalline'
 	Plug 'jiangmiao/auto-pairs'
-	Plug 'airblade/vim-gitgutter'	
-	Plug 'ctrlpvim/ctrlp.vim'
+	Plug 'kien/rainbow_parentheses.vim' 
 	Plug 'mhinz/vim-startify'
 	Plug 'valloric/youcompleteme'
 	Plug 'junegunn/fzf.vim'
-	Plug 'kien/rainbow_parentheses.vim' 
 	Plug 'ap/vim-css-color'
 
 	" Load dev icons after nerd tree / crystalline
@@ -164,12 +163,17 @@ noremap <c-right> <c-w><
 nnoremap <leader>l :NERDTreeToggle<cr> 
 
 " Fzf stuff
+nnoremap ff :Files<cr>
+nnoremap fg :Ag<cr>
+nnoremap <leader>gg :GBrowse<cr>
+nnoremap <leader>gf :GFiles<cr>
+nnoremap <leader>gc :Commits<cr>
 
-nnoremap ff :FZF<cr>
 
-"  ------ inoremap ------
+" ------ inoremap ------
 
 " ------ vnoremap ------ 
+
 vnoremap <silent> * :<C-u>call VisualSelection('', '')<CR>/<C-R>=@/<CR><CR>
 vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 
@@ -204,7 +208,7 @@ let g:startify_custom_header = [
   \ '                              \/           ',
   \]
 let g:startify_lists = [
-  \ { 'header': ['   Bookmarks'],       'type': 'bookmarks' },
+  \ { 'header': ['   Bookmarks'],      'type': 'bookmarks' },
   \ { 'header': ['   MRU'],            'type': 'files' },
   \ { 'header': ['   MRU '. getcwd()], 'type': 'dir' },
   \ ]
